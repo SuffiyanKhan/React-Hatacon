@@ -1,10 +1,10 @@
-import Signup from "./Component/Signup/Signup";
+import Routing from "./Router/Routing";
 
 
 function App() {
   return (
     <div className="App">
-      <Signup/> 
+      <Routing/> 
     </div>
   );
 }

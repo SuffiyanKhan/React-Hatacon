@@ -17,8 +17,9 @@ export const loginWithGoogle = () => {
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(error.message)
+            const errorMessage = errorCode.slice(5).toUpperCase();
+            const errMessage = errorMessage.replace(/-/g, " ");
+            console.log(errMessage)
             // The email of the user's account used.
             const email = error.customData.email;
             // The AuthCredential type that was used.
