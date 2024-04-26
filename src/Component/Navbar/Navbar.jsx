@@ -29,19 +29,14 @@ function AppNavbar() {
                             </li>
                             <li className="nav-item">
                             <Link to={'/'} className="nav-link active" >
-                                Home
+                                About
                             </Link>
                             </li>
                             <li className="nav-item">
                             <Link to={'/'} className="nav-link active" >
-                                Home
+                                Contact us
                             </Link>
-                            </li>
-                            <li className="nav-item">
-                            <Link to={'/'} className="nav-link active" >
-                                Home
-                            </Link>
-                            </li>                            
+                            </li>                                                 
                         </ul>
                         <form className="d-flex" role="search">
                             <input
