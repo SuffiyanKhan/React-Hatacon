@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom'
 function AppNavbar() {
     return (
         <div>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <nav className="navbar navbar-expand-lg bg-body-tertiary  fixed-top">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">
-                        Navbar
-                    </a>
+                    <Link className="navbar-brand fw-bold" >e-comerce</Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -21,20 +19,25 @@ function AppNavbar() {
                         <span className="navbar-toggler-icon" />
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul className="navbar-nav m-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                            <Link to={'/'} className="nav-link active" >
+                            <Link to={'/'} className="nav-link fw-semibold text-capitalize active" >
                                 Home
                             </Link>
                             </li>
                             <li className="nav-item">
-                            <Link to={'/'} className="nav-link active" >
+                            <Link to={'/'} className="nav-link fw-semibold text-capitalize active" >
                                 About
                             </Link>
                             </li>
                             <li className="nav-item">
-                            <Link to={'/'} className="nav-link active" >
+                            <Link to={'/'} className="nav-link fw-semibold text-capitalize active" >
                                 Contact us
+                            </Link>
+                            </li> 
+                            <li className="nav-item">
+                            <Link to={'/dashboard'} className="nav-link fw-semibold text-capitalize active" >
+                                Dashboard
                             </Link>
                             </li>                                                 
                         </ul>
