@@ -9,6 +9,9 @@ import { auth } from '../Config/FirebaseConfig'
 import DetailPage from '../Pages/DetailPage'
 import DashboardPage from '../Pages/DashboardPage'
 import { useGlobalState } from '../Context/Context'
+// import Category from '../Component/Category/Category'
+import NavbarWithCondition from '../Component/NavbarWithCondition/NavbarWithCondition'
+import CategoryPages from '../Pages/Categorys'
 function Routing() {
   const { setUserId } = useGlobalState()
   const [user, setUser] = useState(false)
@@ -26,6 +29,9 @@ function Routing() {
   return (
     <>
       <BrowserRouter>
+      <div>
+        <NavbarWithCondition/>
+      </div>
         <Routes>
           <Route path='*' element={<PageNotFound />} />
           <Route path='/' element={user ? <Home /> : <Navigate to={'/login'} />} />
@@ -33,6 +39,7 @@ function Routing() {
           <Route path='/login' element={user ? <Navigate to={'/'} /> : <Login />} />
           <Route path='/product/:id' element={<DetailPage />} />
           <Route path='/dashboard' element={<DashboardPage />} />
+          <Route path='/:category' element={<CategoryPages />} />
         </Routes>
       </BrowserRouter>
     </>

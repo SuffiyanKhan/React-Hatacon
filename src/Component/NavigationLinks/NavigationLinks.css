@@ -1,0 +1,20 @@
+.navigation-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .nav {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .nav-link {
+    margin-right: 10px;
+    white-space: nowrap;
+  }
+  
+  /* Hide scrollbar */
+  .navigation-container::-webkit-scrollbar {
+    display: none;
+  }
+  

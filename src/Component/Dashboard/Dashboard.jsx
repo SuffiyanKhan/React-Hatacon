@@ -20,7 +20,7 @@ function Dashboard() {
     };
 
     fetchData();
-  }, [userId]); // Run this effect only when userId changes
+  }, [userId]); 
 
   return (
     <div className="container mt-5">
