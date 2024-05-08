@@ -1,15 +1,16 @@
-import React, {  useState } from 'react'
+import React from 'react'
 import AddtoCart from '../AddtoCart/AddtoCart'
-import { SearchBar } from '../../Services/search'
 import { useGlobalState } from '../../Context/Context'
+import LogoutButton from '../LogoutButton/LogoutButton'
 
 function SearchProducts() {
-    // const [inputs, setInputs] = useState('')
-    const { setSearchInput} = useGlobalState()
+    const { setSearchInput,countingProduct} = useGlobalState()
     
     const getInput = (e) => {
-        // setInputs(e.target.value)
         setSearchInput(e.target.value)
+    }
+    if(countingProduct){
+        
     }
     return (
         <div>
@@ -21,7 +22,9 @@ function SearchProducts() {
                     aria-label="Search"
                     onChange={(e) => { getInput(e) }}
                 />
+                
                 <AddtoCart />
+                <LogoutButton/>
             </div>
         </div>
     )

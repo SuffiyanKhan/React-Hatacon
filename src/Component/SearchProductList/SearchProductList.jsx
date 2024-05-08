@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useGlobalState } from '../../Context/Context'
+import { SaveLocalStorage } from '../../Services/saveLocalStorage'
 
 function SearchProductList({ search }) {
 
     const [searchData, setSearchData] = useState([]);
-
+    const { userId, setCountingProduct } = useGlobalState()
+    const [couunt, setCount] = useState(0)
     useEffect(() => {
         setSearchData(search);
     }, [search]);
-
+    const saveLocalStorage = (image, title, price, userId) => {
+        SaveLocalStorage(image, title, price, userId)
+        setCount(couunt + 1)
+        setCountingProduct(couunt)
+    }
     return (
         <>
             <div className="container">
@@ -30,13 +37,12 @@ function SearchProductList({ search }) {
                                             </div>
                                             <div className="mt-3  d-flex justify-content-between">
                                                 <button className='btn btn-primary' >Buy </button>
-                                                <button className='btn btn-primary ' >Add to cart </button>
+                                                <button className='btn btn-primary ' onclick={()=>{saveLocalStorage()}} >Add to cart </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             ))}
-
                         </>
                     )}
                 </div>

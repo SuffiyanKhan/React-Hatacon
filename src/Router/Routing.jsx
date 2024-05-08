@@ -12,8 +12,10 @@ import { useGlobalState } from '../Context/Context'
 // import Category from '../Component/Category/Category'
 import NavbarWithCondition from '../Component/NavbarWithCondition/NavbarWithCondition'
 import CategoryPages from '../Pages/Categorys'
+import OrderPlace from '../Component/OrdrePlace/OrderPlace'
+// import OrderPlace from '../Component/OrderPlace/OrderPlace'
 function Routing() {
-  const { setUserId } = useGlobalState()
+  const { setUserId, setId } = useGlobalState()
   const [user, setUser] = useState(false)
   useEffect(() => {
     (() => {
@@ -21,6 +23,7 @@ function Routing() {
         if (user) {
           const uid = user.uid;
           setUserId(uid)
+          setId(uid)
           setUser(true)
         }
       });
@@ -29,9 +32,9 @@ function Routing() {
   return (
     <>
       <BrowserRouter>
-      <div>
-        <NavbarWithCondition/>
-      </div>
+        <div>
+          <NavbarWithCondition />
+        </div>
         <Routes>
           <Route path='*' element={<PageNotFound />} />
           <Route path='/' element={user ? <Home /> : <Navigate to={'/login'} />} />
@@ -40,6 +43,8 @@ function Routing() {
           <Route path='/product/:id' element={<DetailPage />} />
           <Route path='/dashboard' element={<DashboardPage />} />
           <Route path='/:category' element={<CategoryPages />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/orderplace/:id' element={<OrderPlace />} />
         </Routes>
       </BrowserRouter>
     </>

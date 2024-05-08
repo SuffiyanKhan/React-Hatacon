@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import './ProductList.css'
+import { SaveLocalStorage } from '../../Services/saveLocalStorage'
+import { useGlobalState } from '../../Context/Context'
 
 function ProductList(products) {
+    const { userId, setCountingProduct } = useGlobalState()
+    const [couunt, setCount] = useState(0)
+
     if (!products) {
         return <p>data not found</p>
     }
-    const saveLocalStorage = (image,title,price) => {
-        console.log(image,title,price)
+    const saveLocalStorage = (image, title, price, userId) => {
+        SaveLocalStorage(image, title, price, userId)
+        setCount(couunt + 1)
+        setCountingProduct(couunt)
     }
     return (
         <>
@@ -21,13 +29,13 @@ function ProductList(products) {
                                     <p className="card-text ">Price : ${product.price}</p>
                                     <p className="card-text ">{product.description}</p>
                                     <div className="flex-grow-1">
-                                        <Link to={`/product/${product.id}`} className=' border text-dark text-decoration-none'  >
-                                            View Detail <i class="fa-solid fa-arrow-right"></i>
+                                        <Link to={`/product/${product.id}`} className='text-dark text-decoration-none view-detail'  >
+                                            View Detail <span><i class="fa-solid fa-arrow-right"></i></span>
                                         </Link>
                                     </div>
                                     <div className="mt-3  d-flex justify-content-between">
-                                        <button className='btn btn-primary' >Buy </button>
-                                        <button className='btn btn-primary ' onClick={() => { saveLocalStorage(product.images[0], product.title, product.price) }} >Add to cart </button>
+                                        <button className='btn btn-primary w-50' >Buy </button>
+                                        <button className='btn btn-primary w-50 ms-2 ' onClick={() => { saveLocalStorage(product.images[0], product.title, product.price, userId) }} >Add to cart </button>
                                     </div>
                                 </div>
                             </div>

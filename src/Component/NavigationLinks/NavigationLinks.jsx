@@ -24,7 +24,7 @@ function NavigationLinks() {
             onScroll={handleScroll}>
             <div className="row">
                 <nav className="nav">
-                    <Link className="nav-link text-capitalize fw-bold text-black active" aria-current="page" to={'/home'} >home</Link>
+                    {/* <Link className="nav-link text-capitalize fw-bold text-black active" aria-current="page" to={'/'} >home</Link> */}
                     <Link className="nav-link text-capitalize fw-bold text-black" to={'/smartphones'} >smartphones</Link>
                     <Link className="nav-link text-capitalize fw-bold text-black" to={'/laptops'} >laptops</Link>
                     <Link className="nav-link text-capitalize fw-bold text-black" to={'/fragrances'} >fragrances</Link>
