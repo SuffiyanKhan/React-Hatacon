@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useGlobalState } from '../../Context/Context';
 
-function Counter() {
+function Counter(price) {
+  const {setincrement } = useGlobalState()
   const [count, setCount] = useState(1);
-
+useEffect(()=>{
+    setincrement(count)
+},[count])
   const incrementCount = () => {
     setCount(prevCount => prevCount + 1);
+    setincrement(count)
   };
 
   const decrementCount = () => {
     if (count > 1) {
       setCount(prevCount => prevCount - 1);
+      setincrement(count)
     }
   };
+  console.log(price)
 
   return (
     <div className="counter-container">
